@@ -16,7 +16,7 @@ The program was executed via the terminal with `python input_processing.py`. Exe
 <img align="down" src="MyOutput1.png">
 
 <ins>MyOutput2.png</ins>
-<img align="down" src="MyOutput1.png">
+<img align="down" src="MyOutput2.png">
 
 <ins>MyOutput3.png</ins>
-<img align="down" src="MyOutput1.png">
+<img align="down" src="MyOutput3.png">
