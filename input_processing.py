@@ -3,14 +3,10 @@
 # A terminal-based program for processing computer vision changes detected by a car.
 
 class Sensor:
-    """
-    Sensor class to track the status of traffic light, pedestrian, and vehicle.
-    """
+    """Sensor class to track the status of traffic light, pedestrian, and vehicle."""
 
     def __init__(self, traffic_light="green", pedestrian="no", vehicle="no"):
-        """
-        Initializes the sensor with default values for traffic_light, pedestrian, and vehicle.
-        """
+        """Initializes the sensor with default values for traffic_light, pedestrian, and vehicle."""
         self.traffic_light = traffic_light
         self.pedestrian = pedestrian
         self.vehicle = vehicle        
@@ -43,9 +39,7 @@ class Sensor:
 
 
 def print_message(sensor):
-    """
-    Prints an action message and the current status of the sensor.
-    """
+    """Prints an action message and the current status of the sensor."""
     # STOP message if there is either a red light, a pedestrian or a vehicle. For other messages the light 
     # only must be checked, because if pedestrian or vehicle it falls under the STOP message category. 
     if sensor.traffic_light == "red" or sensor.pedestrian == "yes" or sensor.vehicle == "yes":
@@ -58,9 +52,7 @@ def print_message(sensor):
 
 
 def main():
-    """
-    Main function to run the Car Vision Detector Processing Program.
-    """
+    """Main function to run the Car Vision Detector Processing Program."""
     # Step 1. Greet the user and instantiate the Sensor object
     print("\n***ENSF 692 Car Vision Detector Processing Program***\n")
     sensor = Sensor()
