@@ -1,23 +1,12 @@
 # input_processing.py
 # YAEL GONZALEZ, ENSF 692 P24
 # A terminal-based program for processing computer vision changes detected by a car.
-# You may add your own additional classes, functions, variables, etc. as long as they do not contradict the requirements (i.e. no global variables, etc.). 
-# You may import any modules from the standard Python library.
-# Remember to include your name and comments.
 
-# No global variables are permitted
-
-# You do not need to provide additional commenting above this class, just the user-defined functions within the class
-
-
-#TODO: Add comments to explain logic
 class Sensor:
     """
     Sensor class to track the status of traffic light, pedestrian, and vehicle.
     """
 
-    # Must include a constructor that uses default values
-    # You do not need to provide commenting above the constructor
     def __init__(self, traffic_light="green", pedestrian="no", vehicle="no"):
         """
         Initializes the sensor with default values for traffic_light, pedestrian, and vehicle.
@@ -26,12 +15,14 @@ class Sensor:
         self.pedestrian = pedestrian
         self.vehicle = vehicle        
 
-    # Replace these comments with your function commenting
-    def update_status(self, traffic_light=None, pedestrian=None, vehicle=None): # You may decide how to implement the arguments for this function
+    def update_status(self, traffic_light=None, pedestrian=None, vehicle=None):
         """
         Updates the sensor status based on the provided parameters.
         Only updates parameters that are not None and are valid.
         """
+        # Each status is set to None by default. If a status value is passed (i.e., different than None),
+        # then the status will be validated through the tuple. If the status is valid, then the instance
+        # variable for the sensor will get updated. If the status is invalid, a message will be printed.
         if traffic_light is not None:
             if traffic_light in ("green", "yellow", "red"):
                 self.traffic_light = traffic_light
@@ -50,18 +41,19 @@ class Sensor:
             else:
                 print("Invalid vision change.")
 
-# The sensor object should be passed to this function to print the action message and current status
-# Replace these comments with your function commenting
+
 def print_message(sensor):
     """
     Prints an action message and the current status of the sensor.
     """
+    # STOP message if there is either a red light, a pedestrian or a vehicle. For other messages the light 
+    # only must be checked, because if pedestrian or vehicle it falls under the STOP message category. 
     if sensor.traffic_light == "red" or sensor.pedestrian == "yes" or sensor.vehicle == "yes":
         print("\nSTOP\n")
-    elif sensor.traffic_light == "green":
-        print("\nProceed\n")
-    else:
+    elif sensor.traffic_light == "yellow":
         print("\nCaution\n")
+    else:
+        print("\nProceed\n")
     print(f"Light = {sensor.traffic_light} , Pedestrian = {sensor.pedestrian} , Vehicle = {sensor.vehicle} .\n")
 
 
@@ -69,26 +61,33 @@ def main():
     """
     Main function to run the Car Vision Detector Processing Program.
     """
+    # Step 1. Greet the user and instantiate the Sensor object
     print("\n***ENSF 692 Car Vision Detector Processing Program***\n")
     sensor = Sensor()
 
-    while True:   
+    while True:
+        # Step 2. Ask the user for changes in the vision input and store in "selection" variable   
         print("Are changes are detected in the vision input?")     
         selection = input("Select 1 for light, 2 for pedestrian, 3 for vehicle, or 0 to end the program: ")
         
+        # Step 3. Validate the selection.
         try:
-            if selection not in ('0', '1', '2', '3'):
-                raise ValueError("You must select either 1, 2, 3 or 0.")
+            if selection not in ('0', '1', '2', '3'): # Use a tuple to validate selection
+                raise ValueError("You must select either 1, 2, 3 or 0.") # Raise exception if invalid
         except ValueError as err:
-            print(err, "\n")
-            continue
+            print(err, "\n") # Handle exception and display message 
+            continue # Restart the program at this stage
 
-        if (selection is "0"):
+        # Step 4. Process user's selection from the options
+        if (selection is "0"): # First, quit the program if user selected '0'
             break     
-
+        
+        # Store the identified change in the "change" variable
         change = input("What change has been identified?: ")
 
-        match(selection):
+        # Use a switch/case method to process the selection, i.e., update the sensor status. No need for a 
+        # default case (selection has been validated already) 
+        match(selection): 
             case "1":
                 sensor.update_status(traffic_light=change)
             case "2":
@@ -96,6 +95,7 @@ def main():
             case "3":
                 sensor.update_status(vehicle=change)
         
+       # Step 5. Print the appropriate action message given the current instance variables values
         print_message(sensor)
    
 
