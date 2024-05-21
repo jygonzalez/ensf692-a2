@@ -12,11 +12,11 @@ In the code, the terminal-based application runs in `main`, the `Sensor` class s
 ## Execution and Testing
 The program was executed via the terminal with `python input_processing.py`. Execution was successful, as showcased in the screenshots below:
 
-<u>MyOutput1.png</u>
-![MyOutput1 Screenshot](MyOutput1.png)
+<ins>MyOutput1.png</ins>
+<img align="down" src="MyOutput1.png">
 
-<u>MyOutput2.png</u>
-![MyOutput2 Screenshot](MyOutput2.png)
+<ins>MyOutput2.png</ins>
+<img align="down" src="MyOutput1.png">
 
-<u>MyOutput3.png</u>
-![MyOutput3 Screenshot](MyOutput3.png)
+<ins>MyOutput3.png</ins>
+<img align="down" src="MyOutput1.png">
