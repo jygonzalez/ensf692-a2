@@ -13,10 +13,13 @@ In the code, the terminal-based application runs in `main`, the `Sensor` class s
 The program was executed via the terminal with `python input_processing.py`. Execution was successful, as showcased in the screenshots below:
 
 <ins>MyOutput1.png</ins>
-<img align="down" src="MyOutput1.png">
+<br>
+<img src="MyOutput1.png" alt="MyOutput1">
 
 <ins>MyOutput2.png</ins>
-<img align="down" src="MyOutput2.png">
+<br>
+<img src="MyOutput2.png" alt="MyOutput2">
 
 <ins>MyOutput3.png</ins>
-<img align="down" src="MyOutput3.png">
+<br>
+<img src="MyOutput3.png" alt="MyOutput3">
